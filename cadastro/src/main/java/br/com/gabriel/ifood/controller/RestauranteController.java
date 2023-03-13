@@ -23,7 +23,7 @@ public class RestauranteController {
     @Transactional
     public Response criar(Restaurante dto) {
         dto.persist();
-        return Response.accepted().build();
+        return Response.status(Response.Status.CREATED).build();
     }
 
     @PUT
