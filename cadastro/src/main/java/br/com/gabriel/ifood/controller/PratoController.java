@@ -1,27 +1,43 @@
 package br.com.gabriel.ifood.controller;
 
+import br.com.gabriel.ifood.dto.AtualizarPratoDTO;
+import br.com.gabriel.ifood.dto.CadastrarPratoDTO;
+import br.com.gabriel.ifood.dto.PratoDTO;
+import br.com.gabriel.ifood.dto.PratoMapper;
 import br.com.gabriel.ifood.model.Prato;
+import br.com.gabriel.ifood.model.Restaurante;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Path("pratos")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PratoController {
 
+    @Inject
+    PratoMapper pratoMapper;
+
     @GET
-    public List<Prato> buscar() {
-        return Prato.listAll();
+    public List<PratoDTO> buscar() {
+        List<PratoDTO> pratoDTOList = Prato.listAll()
+                .stream()
+                .map(prato -> pratoMapper.toDTO((Prato) prato))
+                .collect(Collectors.toList());
+        return pratoDTOList;
     }
 
     @POST
     @Transactional
-    public Response inserir(Prato prato) {
+    public Response inserir(CadastrarPratoDTO dto) {
+        Prato prato = pratoMapper.toPrato(dto);
         prato.persist();
         return Response.status(Response.Status.CREATED).build();
     }
@@ -29,12 +45,12 @@ public class PratoController {
     @PUT
     @Transactional
     @Path("/{id}")
-    public void atualizar(@PathParam("id") Long id, Prato dto) {
+    public void atualizar(@PathParam("id") Long id, AtualizarPratoDTO dto) {
         Optional<Prato> pratoOp = Prato.findByIdOptional(id);
         if (pratoOp.isEmpty()) {
             throw new NotFoundException();
         }
-        pratoOp.get().nome = dto.nome;
+        pratoMapper.toPrato(dto, pratoOp.get());
     }
 
     @DELETE

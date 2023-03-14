@@ -1,6 +1,8 @@
 package br.com.gabriel.ifood.controller;
 
+import br.com.gabriel.ifood.dto.AtualizarRestauranteDTO;
 import br.com.gabriel.ifood.dto.CadastrarRestauranteDTO;
+import br.com.gabriel.ifood.dto.RestauranteDTO;
 import br.com.gabriel.ifood.dto.RestauranteMapper;
 import br.com.gabriel.ifood.model.Restaurante;
 
@@ -11,6 +13,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Path("/restaurantes")
 @Produces(MediaType.APPLICATION_JSON)
@@ -21,8 +24,12 @@ public class RestauranteController {
     RestauranteMapper restauranteMapper;
 
     @GET
-    public List<Restaurante> buscar() {
-        return Restaurante.listAll();
+    public List<RestauranteDTO> buscar() {
+        List<RestauranteDTO> restauranteDTOList = Restaurante.listAll()
+                .stream()
+                .map(restaurante -> restauranteMapper.toDTO((Restaurante) restaurante))
+                .collect(Collectors.toList());
+        return restauranteDTOList;
     }
 
     @POST
@@ -36,13 +43,13 @@ public class RestauranteController {
     @PUT
     @Path("{id}")
     @Transactional
-    public void atualizar(@PathParam("id") Long id, Restaurante dto) {
+    public void atualizar(@PathParam("id") Long id, AtualizarRestauranteDTO dto) {
         Optional<Restaurante> restauranteOp = Restaurante.findByIdOptional(id);
         if (restauranteOp.isEmpty()) {
             throw new NotFoundException();
         }
         Restaurante restaurante = restauranteOp.get();
-        restaurante.nome = dto.nome;
+        restauranteMapper.toRestaurante(dto, restaurante);
     }
 
     @DELETE
