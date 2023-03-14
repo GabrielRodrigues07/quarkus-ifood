@@ -1,7 +1,10 @@
 package br.com.gabriel.ifood.controller;
 
+import br.com.gabriel.ifood.dto.CadastrarRestauranteDTO;
+import br.com.gabriel.ifood.dto.RestauranteMapper;
 import br.com.gabriel.ifood.model.Restaurante;
 
+import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -14,6 +17,9 @@ import java.util.Optional;
 @Consumes(MediaType.APPLICATION_JSON)
 public class RestauranteController {
 
+    @Inject
+    RestauranteMapper restauranteMapper;
+
     @GET
     public List<Restaurante> buscar() {
         return Restaurante.listAll();
@@ -21,8 +27,9 @@ public class RestauranteController {
 
     @POST
     @Transactional
-    public Response criar(Restaurante dto) {
-        dto.persist();
+    public Response criar(CadastrarRestauranteDTO dto) {
+        Restaurante restaurante = restauranteMapper.toRestaurante(dto);
+        restaurante.persist();
         return Response.status(Response.Status.CREATED).build();
     }
 
