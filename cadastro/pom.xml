@@ -142,6 +142,16 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-oidc</artifactId>
     </dependency>
+
+    <dependency>
+      <groupId>org.apache.camel.quarkus</groupId>
+      <artifactId>camel-quarkus-opentracing</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>io.opentracing.contrib</groupId>
+      <artifactId>opentracing-jdbc</artifactId>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
