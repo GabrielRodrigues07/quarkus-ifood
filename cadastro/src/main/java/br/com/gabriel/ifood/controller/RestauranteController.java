@@ -5,6 +5,9 @@ import br.com.gabriel.ifood.dto.CadastrarRestauranteDTO;
 import br.com.gabriel.ifood.dto.RestauranteDTO;
 import br.com.gabriel.ifood.dto.RestauranteMapper;
 import br.com.gabriel.ifood.model.Restaurante;
+import org.eclipse.microprofile.metrics.annotation.Counted;
+import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
+import org.eclipse.microprofile.metrics.annotation.Timed;
 import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlows;
@@ -34,6 +37,9 @@ public class RestauranteController {
     RestauranteMapper restauranteMapper;
 
     @GET
+    @SimplyTimed(name = "Tempo simples de buscas")
+    @Timed(name = "tempo completo de busca")
+    @Counted(name = "Quantidade de buscas restaurante")
     public List<RestauranteDTO> buscar() {
         List<RestauranteDTO> restauranteDTOList = Restaurante.listAll()
                 .stream()
