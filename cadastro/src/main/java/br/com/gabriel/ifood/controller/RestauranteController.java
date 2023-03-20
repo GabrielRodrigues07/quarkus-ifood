@@ -12,9 +12,13 @@ import org.eclipse.microprofile.openapi.annotations.enums.SecuritySchemeType;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlow;
 import org.eclipse.microprofile.openapi.annotations.security.OAuthFlows;
 import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
+import org.eclipse.microprofile.reactive.messaging.Channel;
+import org.eclipse.microprofile.reactive.messaging.Emitter;
 
 import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.ws.rs.*;
@@ -36,6 +40,10 @@ public class RestauranteController {
     @Inject
     RestauranteMapper restauranteMapper;
 
+    @Inject
+    @Channel("restaurantes")
+    Emitter<String> emitter;
+
     @GET
     @SimplyTimed(name = "Tempo simples de buscas")
     @Timed(name = "tempo completo de busca")
@@ -53,6 +61,12 @@ public class RestauranteController {
     public Response criar(@Valid CadastrarRestauranteDTO dto) {
         Restaurante restaurante = restauranteMapper.toRestaurante(dto);
         restaurante.persist();
+
+        // envio de objeto para a fila
+        Jsonb create = JsonbBuilder.create();
+        String json = create.toJson(restaurante);
+        emitter.send(json);
+
         return Response.status(Response.Status.CREATED).build();
     }
 
