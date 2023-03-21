@@ -1,4 +1,4 @@
-package br.com.gabriel.ifood;
+package br.com.gabriel.ifood.controller;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
