@@ -64,3 +64,13 @@ services:
       - "5673:5672"
       - "8161:8161"
       - "61616:61616"
+
+  mongodb_ifood:
+    container_name: mongodb_ifood
+    image: mongo:4.4.6
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: pedido
+      MONGO_INITDB_ROOT_PASSWORD: pedido
+      MONGO_INITDB_DATABASE: pedido
+    ports:
+      - "27018:27017"
