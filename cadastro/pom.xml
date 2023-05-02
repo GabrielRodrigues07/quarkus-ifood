@@ -135,12 +135,12 @@
 
     <dependency>
       <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-smallrye-jwt</artifactId>
+      <artifactId>quarkus-oidc</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>io.quarkus</groupId>
-      <artifactId>quarkus-oidc</artifactId>
+      <groupId>org.jboss</groupId>
+      <artifactId>jandex</artifactId>
     </dependency>
 
     <dependency>
@@ -152,6 +152,7 @@
       <groupId>io.opentracing.contrib</groupId>
       <artifactId>opentracing-jdbc</artifactId>
     </dependency>
+
     <dependency>
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-metrics</artifactId>
@@ -166,6 +167,13 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-reactive-messaging-amqp</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.assertj</groupId>
+      <artifactId>assertj-core</artifactId>
+      <version>3.22.0</version>
+      <scope>test</scope>
+    </dependency>
+
   </dependencies>
   <build>
     <plugins>

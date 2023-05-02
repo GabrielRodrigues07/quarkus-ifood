@@ -21,9 +21,11 @@ public class Restaurante {
     public void pesist(PgPool pgPool) {
 
         System.out.println(localizacao.id);
-        pgPool.preparedQuery("INSERT INTO localizacao(id, latitude, longitude) VALUES ($1, $2, $3)").execute(Tuple.of(localizacao.id, localizacao.latitude, localizacao.longitude));
 
-        pgPool.preparedQuery("insert into restaurante(id, nome, localizacao_id) values ($1, $2, $3)")
-                .execute(Tuple.of(id, nome, localizacao.id));
+        pgPool.preparedQuery("INSERT INTO localizacao(id, latitude, longitude) VALUES ($1, $2, $3)")
+                .execute(Tuple.of(localizacao.id, localizacao.latitude, localizacao.longitude))
+                .flatMap(result -> pgPool.preparedQuery("INSERT INTO restaurante(id, nome, localizacao_id) VALUES ($1, $2, $3)")
+                        .execute(Tuple.of(id, nome, localizacao.id)))
+                .subscribeAsCompletionStage();
     }
 }

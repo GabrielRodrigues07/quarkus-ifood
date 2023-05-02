@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class CadastroTestLifecycleManager implements QuarkusTestResourceLifecycleManager {
 
-    public static final PostgreSQLContainer<?> POSTGRES = new PostgreSQLContainer<>("postgres:12.2");
+    public static final PostgreSQLContainer<?> POSTGRES = new PostgreSQLContainer<>("postgres:14.7");
 
     @Override
     public Map<String, String> start() {

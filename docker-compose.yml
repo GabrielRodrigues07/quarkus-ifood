@@ -30,7 +30,7 @@ services:
     command: start-dev
   jaeger_ifood:
     container_name: jaeger_ifood
-    image: jaegertracing/all-in-one:1.43
+    image: jaegertracing/all-in-one:1.17
     ports:
       - "6831:6831/udp"
       - "6832:6832/udp"
@@ -98,6 +98,9 @@ services:
     image: obsidiandynamics/kafdrop:3.24.0
     environment:
       KAFKA_BROKERCONNECT: kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
     ports:
       - "9000:9000"
     depends_on:

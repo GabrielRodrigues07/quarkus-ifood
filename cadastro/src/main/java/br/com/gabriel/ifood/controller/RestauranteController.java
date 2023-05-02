@@ -5,6 +5,7 @@ import br.com.gabriel.ifood.dto.CadastrarRestauranteDTO;
 import br.com.gabriel.ifood.dto.RestauranteDTO;
 import br.com.gabriel.ifood.dto.RestauranteMapper;
 import br.com.gabriel.ifood.model.Restaurante;
+import io.quarkus.security.Authenticated;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -15,7 +16,6 @@ import org.eclipse.microprofile.openapi.annotations.security.SecurityScheme;
 import org.eclipse.microprofile.reactive.messaging.Channel;
 import org.eclipse.microprofile.reactive.messaging.Emitter;
 
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.json.bind.Jsonb;
 import javax.json.bind.JsonbBuilder;
@@ -31,10 +31,10 @@ import java.util.stream.Collectors;
 @Path("/restaurantes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-@RolesAllowed("proprietario")
 @SecurityScheme(securitySchemeName = "ifood-oauth", type = SecuritySchemeType.OAUTH2, flows = @OAuthFlows(password =
 @OAuthFlow(tokenUrl = "http://localhost:8180/realms/ifood/protocol/openid-connect/token")))
 //@SecurityRequirement(name = "ifood-oauth")
+@Authenticated
 public class RestauranteController {
 
     @Inject
