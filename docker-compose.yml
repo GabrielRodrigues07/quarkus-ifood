@@ -42,11 +42,11 @@ services:
       - "14268:14268"
       - "14269:14269"
       - "9411:9411"
-  prometheus_ifood:
-    container_name: prometheus_ifood
-    image: prometheus-ifood
-    ports:
-      - "9090:9090"
+  #  prometheus_ifood:
+  #    container_name: prometheus_ifood
+  #    image: prometheus-ifood
+  #    ports:
+  #      - "9090:9090"
 
   grafana_ifood:
     container_name: grafana_ifood
@@ -76,32 +76,41 @@ services:
       - "27018:27017"
 
   zookeeper:
-    container_name: zookeeper_container
-    image: debezium/zookeeper:1.1
+    image: confluentinc/cp-zookeeper:7.3.2
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
       - "2888:2888"
       - "3888:3888"
 
-  kafka:
-    container_name: kafka_container
-    image: debezium/kafka:1.1
+  broker:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: broker
     ports:
+      # To learn about configuring Kafka for access across networks see
+      # https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
       - "9092:9092"
-    links:
+    depends_on:
       - zookeeper
     environment:
-      - ZOOKEEPER_CONNECT=zookeeper:2181
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
 
   kafdrop:
-    container_name: kafdrop_container
-    image: obsidiandynamics/kafdrop:3.24.0
-    environment:
-      KAFKA_BROKERCONNECT: kafka:9092
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
-     KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    image: obsidiandynamics/kafdrop
+    restart: "no"
     ports:
       - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: "broker:29092"
+      JVM_OPTS: "-Xms16M -Xmx48M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify"
     depends_on:
-      - kafka
+      - "broker"

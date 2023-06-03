@@ -1,0 +1,1 @@
+ALTER TABLE prato_carrinho RENAME TO prato_cliente;
