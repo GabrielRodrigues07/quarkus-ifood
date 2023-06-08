@@ -5,16 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="Recebendo Pedidos do Marketplace">
-      <change afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/mapper/PedidoMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/mapper/PratoMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/js/realtime-actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/js/vertx-eventbus.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/.bin/vertx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/.bin/vertx.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/bin/vertx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/bin/vertx.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/conf/default-cluster.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/conf/logging.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/entregador/vertx-server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/resource/PedidoResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/kafka/PedidoRealizadoIncoming.java" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/kafka/PedidoRealizadoIncoming.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Localizacao.java" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Localizacao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Pedido.java" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Pedido.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Prato.java" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Prato.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Restaurante.java" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/model/Restaurante.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,19 +61,21 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/Gabriel/Documents/Gabriel/Desktop/Udemy/ifood-work/ifood/pedido/src/main/java/br/com/gabriel/ifood/model/domain",
+    "last_opened_file_path": "C:/Users/Gabriel/Documents/Gabriel/Desktop/Udemy/ifood-work/codigo_do_professor/udemy-quarkus",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "terminal"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Gabriel\Documents\Gabriel\Desktop\Udemy\ifood-work\ifood" />
       <recent name="C:\Users\Gabriel\Documents\Gabriel\Desktop\Udemy\ifood-work\ifood\pedido\src\main\java\br\com\gabriel\ifood\model\domain" />
       <recent name="C:\Users\Gabriel\Desktop\Udemy\ifood-work\ifood\marketplace\src\main\resources\db\migration" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="br.com.gabriel.ifood.resource" />
       <recent name="br.com.gabriel.ifood.model.domain" />
       <recent name="br.com.gabriel.ifood.service.impl" />
       <recent name="br.com.gabriel.ifood.service" />
@@ -78,7 +87,7 @@
       <command value="mvn clean install" />
     </option>
   </component>
-  <component name="RunManager" selected="Quarkus (Maven).RunMarketplace">
+  <component name="RunManager" selected="Quarkus (Maven).RunPedido">
     <configuration name="RunMarketplace" type="QuarkusMavenBridge">
       <option name="envVariables">
         <map>
