@@ -5,23 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="Recebendo Pedidos do Marketplace">
-      <change afterPath="$PROJECT_DIR$/entregador/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/js/realtime-actions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/js/vertx-eventbus.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/.bin/vertx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/.bin/vertx.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/bin/vertx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/bin/vertx.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/conf/default-cluster.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/node_modules/vertx3-full/vertx/conf/logging.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/entregador/vertx-server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/resource/PedidoResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pipelines/gelf.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedido/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/resource/ExampleResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/resource/ExampleResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,6 +51,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "jdk.selected.JAVA_MODULE": "corretto-11",
     "last_opened_file_path": "C:/Users/Gabriel/Documents/Gabriel/Desktop/Udemy/ifood-work/codigo_do_professor/udemy-quarkus",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
