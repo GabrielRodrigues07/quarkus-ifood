@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="Recebendo Pedidos do Marketplace">
-      <change afterPath="$PROJECT_DIR$/pipelines/gelf.conf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="Log Centralizado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pedido/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/resource/ExampleResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/java/br/com/gabriel/ifood/resource/ExampleResource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -163,7 +159,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685824391760</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Log Centralizado">
+      <created>1686407940120</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1686407940120</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +185,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Recebendo Pedidos do Marketplace" />
-    <option name="LAST_COMMIT_MESSAGE" value="Recebendo Pedidos do Marketplace" />
+    <MESSAGE value="Log Centralizado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Log Centralizado" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
