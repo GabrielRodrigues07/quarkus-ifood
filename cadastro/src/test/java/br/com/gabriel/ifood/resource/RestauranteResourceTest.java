@@ -25,7 +25,7 @@ import java.util.List;
 @DBUnit(caseInsensitiveStrategy = Orthography.LOWERCASE)
 @QuarkusTest
 @QuarkusTestResource(CadastroTestLifecycleManager.class)
-public class RestauranteControllerTest {
+public class RestauranteResourceTest {
 
     private String keycloakUrl;
     private String token;

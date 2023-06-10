@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="Log Centralizado">
+    <list default="true" id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="Microprofile Health">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cadastro/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cadastro/src/main/java/br/com/gabriel/ifood/dto/CadastrarRestauranteDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro/src/main/java/br/com/gabriel/ifood/dto/CadastrarRestauranteDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cadastro/src/main/java/br/com/gabriel/ifood/resource/PratoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro/src/main/java/br/com/gabriel/ifood/resource/PratoResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cadastro/src/main/java/br/com/gabriel/ifood/resource/RestauranteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro/src/main/java/br/com/gabriel/ifood/resource/RestauranteResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cadastro/src/test/java/br/com/gabriel/ifood/resource/RestauranteControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro/src/test/java/br/com/gabriel/ifood/resource/RestauranteResourceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686407940120</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Microprofile Health">
+      <created>1686409399814</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1686409399814</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,7 +196,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Recebendo Pedidos do Marketplace" />
     <MESSAGE value="Log Centralizado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Log Centralizado" />
+    <MESSAGE value="Microprofile Health" />
+    <option name="LAST_COMMIT_MESSAGE" value="Microprofile Health" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

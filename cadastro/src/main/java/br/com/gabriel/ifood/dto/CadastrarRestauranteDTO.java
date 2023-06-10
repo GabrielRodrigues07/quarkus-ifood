@@ -13,7 +13,6 @@ public class CadastrarRestauranteDTO {
     @CNPJ
     @NotBlank
     public String cnpj;
-    public String proprietario;
     public LocalizacaoDTO localizacao;
 
 }
