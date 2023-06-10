@@ -1,0 +1,155 @@
+version: "3.7"
+services:
+
+  postgres_cadastro:
+    container_name: postgres_cadastro_ifood
+    image: postgres:14.7
+    environment:
+      POSTGRES_USER: cadastro
+      POSTGRES_PASSWORD: cadastro
+      POSTGRES_DB: cadastro
+    ports:
+      - "5433:5432"
+
+
+  postgres_marketplace:
+    container_name: postgres_marketplace_ifood
+    image: postgres:14.7
+    env_file: marketplace_ifood.env
+    ports:
+      - "5434:5432"
+
+  keycloak_ifood:
+    container_name: keycloak_ifood
+    image: quay.io/keycloak/keycloak:17.0.0
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8180:8080"
+    command: start-dev
+  jaeger_ifood:
+    container_name: jaeger_ifood
+    image: jaegertracing/all-in-one:1.17
+    ports:
+      - "6831:6831/udp"
+      - "6832:6832/udp"
+      - "5778:5778"
+      - "16686:16686"
+      - "4317:4317"
+      - "4318:4318"
+      - "14250:14250"
+      - "14268:14268"
+      - "14269:14269"
+      - "9411:9411"
+  #  prometheus_ifood:
+  #    container_name: prometheus_ifood
+  #    image: prometheus-ifood
+  #    ports:
+  #      - "9090:9090"
+
+  grafana_ifood:
+    container_name: grafana_ifood
+    image: grafana/grafana:6.5.0
+    ports:
+      - "3000:3000"
+
+  artemis_ifood:
+    container_name: artemis_ifood
+    image: vromero/activemq-artemis:2-alpine-latest
+    environment:
+      ARTEMIS_USERNAME: admin
+      ARTEMIS_PASSWORD: admin
+    ports:
+      - "5673:5672"
+      - "8161:8161"
+      - "61616:61616"
+
+  mongodb_ifood:
+    container_name: mongodb_ifood
+    image: mongo:4.4.6
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: pedido
+      MONGO_INITDB_ROOT_PASSWORD: pedido
+      MONGO_INITDB_DATABASE: pedido
+    ports:
+      - "27018:27017"
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.3.2
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+      - "2888:2888"
+      - "3888:3888"
+
+  broker:
+    image: confluentinc/cp-kafka:7.3.2
+    container_name: broker
+    ports:
+      # To learn about configuring Kafka for access across networks see
+      # https://www.confluent.io/blog/kafka-client-cannot-connect-to-broker-on-aws-on-docker-etc/
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: 'zookeeper:2181'
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://broker:29092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    restart: "no"
+    ports:
+      - "9000:9000"
+    environment:
+      KAFKA_BROKERCONNECT: "broker:29092"
+      JVM_OPTS: "-Xms16M -Xmx48M -Xss180K -XX:-TieredCompilation -XX:+UseStringDeduplication -noverify"
+    depends_on:
+      - "broker"
+
+  elasticsearch:
+    image: docker.io/elastic/elasticsearch:7.16.3
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    environment:
+      ES_JAVA_OPTS: "-Xms512m -Xmx512m"
+      discovery.type: "single-node"
+    networks:
+      - elk
+
+  logstash:
+    image: docker.io/elastic/logstash:7.16.3
+    volumes:
+      - source: ./pipelines
+        target: /usr/share/logstash/pipeline
+        type: bind
+    ports:
+      - "12201:12201/udp"
+      - "5000:5000"
+      - "9600:9600"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+  kibana:
+    image: docker.io/elastic/kibana:7.16.3
+    ports:
+      - "5601:5601"
+    networks:
+      - elk
+    depends_on:
+      - elasticsearch
+
+networks:
+  elk:
+    driver: bridge

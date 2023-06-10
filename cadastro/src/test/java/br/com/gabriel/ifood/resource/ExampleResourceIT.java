@@ -1,4 +1,4 @@
-package br.com.gabriel.ifood;
+package br.com.gabriel.ifood.resource;
 
 import io.quarkus.test.junit.QuarkusIntegrationTest;
 
