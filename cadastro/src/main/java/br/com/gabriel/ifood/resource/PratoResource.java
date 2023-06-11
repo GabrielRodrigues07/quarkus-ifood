@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 @Path("pratos")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-public class PratoController {
+public class PratoResource {
 
     @Inject
     PratoMapper pratoMapper;

@@ -6,6 +6,8 @@ import br.com.gabriel.ifood.dto.RestauranteDTO;
 import br.com.gabriel.ifood.dto.RestauranteMapper;
 import br.com.gabriel.ifood.model.Restaurante;
 import io.quarkus.security.Authenticated;
+import org.eclipse.microprofile.jwt.Claim;
+import org.eclipse.microprofile.jwt.Claims;
 import org.eclipse.microprofile.metrics.annotation.Counted;
 import org.eclipse.microprofile.metrics.annotation.SimplyTimed;
 import org.eclipse.microprofile.metrics.annotation.Timed;
@@ -35,10 +37,14 @@ import java.util.stream.Collectors;
 @OAuthFlow(tokenUrl = "http://localhost:8180/realms/ifood/protocol/openid-connect/token")))
 //@SecurityRequirement(name = "ifood-oauth")
 @Authenticated
-public class RestauranteController {
+public class RestauranteResource {
 
     @Inject
     RestauranteMapper restauranteMapper;
+
+    @Inject
+    @Claim(standard = Claims.sub)
+    String sub;
 
     @Inject
     @Channel("restaurantes")
@@ -60,6 +66,7 @@ public class RestauranteController {
     @Transactional
     public Response criar(@Valid CadastrarRestauranteDTO dto) {
         Restaurante restaurante = restauranteMapper.toRestaurante(dto);
+        restaurante.proprietario = sub;
         restaurante.persist();
 
         // envio de objeto para a fila
@@ -79,6 +86,10 @@ public class RestauranteController {
             throw new NotFoundException();
         }
         Restaurante restaurante = restauranteOp.get();
+
+        if (!restaurante.proprietario.equals(sub)) {
+            throw new ForbiddenException("Verifique suas credencias");
+        }
         restauranteMapper.toRestaurante(dto, restaurante);
     }
 
@@ -87,6 +98,9 @@ public class RestauranteController {
     @Transactional
     public void deletar(@PathParam("id") Long id) {
         Optional<Restaurante> restauranteOp = Restaurante.findByIdOptional(id);
+        if (!restauranteOp.get().proprietario.equals(sub)) {
+            throw new ForbiddenException("Verifique suas credencias");
+        }
         restauranteOp.ifPresentOrElse(Restaurante::delete, () -> {
             throw new NotFoundException();
         });
