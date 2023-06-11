@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="Microprofile Health">
-      <change beforePath="$PROJECT_DIR$/cadastro/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/cadastro/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marketplace/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/marketplace/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pedido/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pedido/pom.xml" afterDir="false" />
+    <list default="true" id="f12e8c8f-c3d7-42f0-a71d-05b837b2dc8a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/graphql/src/main/java/br/com/gabriel/ifood/Prato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/src/main/java/br/com/gabriel/ifood/PratoGraphqlResource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/graphql/src/main/java/br/com/gabriel/ifood/Restaurante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,11 +27,15 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -32,51 +44,30 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../../../../../../MAVEN/apache-maven-3.9.2" />
+        <option name="mavenHome" value="Use Maven wrapper" />
+        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="MavenRunner">
-    <option name="skipTests" value="true" />
-  </component>
-  <component name="ProjectId" id="2PnUvOSMdWRkPPiBqAkAGlINw8w" />
+  <component name="ProjectId" id="2R48OWVORKYOrJDUTX9XA9TrWjd" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;corretto-11&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Gabriel/Documents/Gabriel/Desktop/Udemy/ifood-work/codigo_do_professor/udemy-quarkus&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;terminal&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/Gabriel/Documents/Gabriel/Desktop/Udemy/ifood-work/quarkus-ifood"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Gabriel\Documents\Gabriel\Desktop\Udemy\ifood-work\ifood" />
-      <recent name="C:\Users\Gabriel\Documents\Gabriel\Desktop\Udemy\ifood-work\ifood\pedido\src\main\java\br\com\gabriel\ifood\model\domain" />
-      <recent name="C:\Users\Gabriel\Desktop\Udemy\ifood-work\ifood\marketplace\src\main\resources\db\migration" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="br.com.gabriel.ifood.resource" />
-      <recent name="br.com.gabriel.ifood.model.domain" />
-      <recent name="br.com.gabriel.ifood.service.impl" />
-      <recent name="br.com.gabriel.ifood.service" />
-      <recent name="br.com.gabriel.ifood.repository" />
+      <recent name="br.com.gabriel.ifood" />
     </key>
   </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="mvn clean install" />
-    </option>
-  </component>
-  <component name="RunManager" selected="Quarkus (Maven).RunPedido">
-    <configuration name="RunMarketplace" type="QuarkusMavenBridge">
+  <component name="RunManager">
+    <configuration name="RunGraphql" type="QuarkusMavenBridge">
       <option name="envVariables">
         <map>
           <entry key="QUARKUS_PROFILE" value="dev" />
@@ -84,101 +75,20 @@
       </option>
       <option name="jreName" value="corretto-11" />
       <option name="vmOptions" />
-      <option name="workingDir" value="$PROJECT_DIR$/marketplace" />
+      <option name="workingDir" value="$PROJECT_DIR$/graphql" />
       <method v="2" />
     </configuration>
-    <configuration name="RunPedido" type="QuarkusMavenBridge">
-      <option name="envVariables">
-        <map>
-          <entry key="QUARKUS_PROFILE" value="dev" />
-        </map>
-      </option>
-      <option name="jreName" value="corretto-11" />
-      <option name="vmOptions" />
-      <option name="workingDir" value="$PROJECT_DIR$/pedido" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.kafdrop: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="kafdrop" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="docker-compose.yml.networks: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="services">
-            <list>
-              <option value="networks" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Docker.docker-compose.yml.kafdrop: Compose Deployment" />
-      <item itemvalue="Docker.docker-compose.yml.networks: Compose Deployment" />
-      <item itemvalue="Quarkus (Maven).RunMarketplace" />
-      <item itemvalue="Quarkus (Maven).RunPedido" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Docker.docker-compose.yml.networks: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yml.kafdrop: Compose Deployment" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b2d84d19-8805-4b1e-a11a-c2d2bd1b7338" name="Default Changelist" comment="" />
-      <created>1684092571927</created>
+      <changelist id="f12e8c8f-c3d7-42f0-a71d-05b837b2dc8a" name="Changes" comment="" />
+      <created>1686497963093</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1684092571927</updated>
-      <workItem from="1684092574499" duration="90000" />
+      <updated>1686497963093</updated>
     </task>
-    <task id="LOCAL-00001" summary="Recebendo Pedidos do Marketplace">
-      <created>1685824391760</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1685824391760</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Log Centralizado">
-      <created>1686407940120</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1686407940120</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Microprofile Health">
-      <created>1686409399814</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1686409399814</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -190,22 +100,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Recebendo Pedidos do Marketplace" />
-    <MESSAGE value="Log Centralizado" />
-    <MESSAGE value="Microprofile Health" />
-    <option name="LAST_COMMIT_MESSAGE" value="Microprofile Health" />
-  </component>
-  <component name="XDebuggerManager">
-    <watches-manager>
-      <configuration name="Remote">
-        <watch expression="pedido.pratos" />
-      </configuration>
-    </watches-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

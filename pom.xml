@@ -43,5 +43,6 @@
         <module>marketplace</module>
         <module>pedido</module>
         <module>cadastro</module>
+        <module>graphql</module>
     </modules>
 </project>
